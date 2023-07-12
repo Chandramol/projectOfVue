@@ -1,0 +1,84 @@
+{
+  "register": [
+    {
+      "id": 1,
+      "name": "chanmol",
+      "email": "chanmol@test",
+      "contact": "77867",
+      "city": "surat",
+      "password": 1234
+    },
+    {
+      "name": "Amit",
+      "email": "amit@test",
+      "contact": "987978",
+      "city": "surat",
+      "password": "8765",
+      "id": 2
+    },
+    {
+      "name": "Vivek",
+      "email": "vicek@test",
+      "contact": "8797",
+      "city": "mumbai",
+      "password": "878768",
+      "id": 3
+    },
+    {
+      "name": "yash",
+      "email": "yash@test",
+      "contact": "78987",
+      "city": "gurgaon",
+      "password": "8978",
+      "id": 4
+    },
+    {
+      "name": "yash",
+      "email": "yash@gmail.com",
+      "contact": "456456",
+      "city": "jkjhk",
+      "password": "YashBorda@1234",
+      "id": 5
+    },
+    {
+      "name": "sdvfsdf",
+      "email": "",
+      "contact": "",
+      "city": "",
+      "password": "",
+      "id": 7
+    },
+    {
+      "name": "",
+      "email": "",
+      "contact": "",
+      "city": "",
+      "password": "",
+      "id": 8
+    },
+    {
+      "name": "",
+      "email": "",
+      "contact": "",
+      "city": "",
+      "password": "",
+      "id": 9
+    },
+    {
+      "name": "nell",
+      "email": "neel@test",
+      "contact": "978987",
+      "city": "kolkata",
+      "password": "9798",
+      "id": 10
+    },
+    {
+      "name": "",
+      "email": "",
+      "contact": "",
+      "city": "",
+      "password": "",
+      "id": 11
+    }
+  ]
+}
