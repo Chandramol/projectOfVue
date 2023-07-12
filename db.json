@@ -80,5 +80,61 @@
       "password": "",
       "id": 11
     }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "shoes",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "name": "clothes",
+      "price": 200
+    },
+    {
+      "id": 3
+    },
+    {
+      "name": "hello",
+      "price": 7657,
+      "id": 4
+    },
+    {
+      "name": "fghf",
+      "price": 6546,
+      "id": 5
+    },
+    {
+      "name": "gfdg",
+      "price": 67576,
+      "id": 6
+    },
+    {
+      "name": "gfdg",
+      "price": 67576,
+      "id": 7
+    },
+    {
+      "name": "fghf",
+      "price": 546,
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "name": "chanmol",
+      "price": 435,
+      "id": 11
+    },
+    {
+      "name": "hkhk",
+      "price": 678,
+      "id": 12
+    }
   ]
 }

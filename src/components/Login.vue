@@ -3,7 +3,7 @@
         <button @click="signupForm()" class="btn btn-warning text-light">Sign Up</button>
         <button @click="signIn()" class="btn btn-primary">Sign In</button>
     </div>
-  <div class="loginForm col-4 m-auto bg-info p-5 rounded">
+  <div class="loginForm col-4 m-auto bg-secondary p-5 rounded">
     <h2 class="text-light mb-5">LogIn Through</h2>
     <form>
       <input

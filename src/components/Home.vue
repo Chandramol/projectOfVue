@@ -3,7 +3,9 @@
   <nav>
     <ul>
       <li><a href="#">Product</a></li>
-      <li><a href="#">Cart</a></li>
+      <router-link to='/cart'>
+        <li><a href="">Cart</a></li>
+      </router-link>
       <li><a href="#">WishList</a></li>
       <li @click="logOut()"><a href="#">Log Out</a></li>
     </ul>
@@ -23,12 +25,16 @@
       v-model="price"
     /><br />
     <button type="button" v-on:click="addProduct()" class="btn btn-primary">
-      Add
+      Add On
     </button>
   </div>
+  <hr>
+  
 </template>
 
 <script>
+import {mapGetters,mapActions} from 'vuex'
+
 export default {
   name: "Home",
   data() {
@@ -37,12 +43,18 @@ export default {
         name: "",
         price: "",
       },
-      detail:[]
+      detail: [],
     };
   },
   methods: {
-    addProduct() {
-      this.detail.push(this.product)
+    ...mapActions(["getPro","addPro"]),
+    addProduct(){
+      this.addPro({
+        name:this.name,
+        price:this.price
+      })
+      alert("added to cart")
+      this.$router.push({path:'/cart'})
     },
     logOut() {
       localStorage.clear();
@@ -51,13 +63,15 @@ export default {
       });
     },
   },
+  computed:mapGetters(["getState"]),
+  mounted(){
+    this.getPro()
+  }
 };
 </script>
 
-<style scoped>
-body {
-  background-color: antiquewhite;
-}
+<style >
+
 h1 {
   color: rgb(249, 168, 19);
   margin-bottom: 30px;
