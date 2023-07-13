@@ -85,56 +85,37 @@
     {
       "id": 1,
       "name": "shoes",
-      "price": 100
+      "price": 100,
+      "is_whiteList": false,
+      "is_cartList":false
     },
     {
       "id": 2,
       "name": "clothes",
-      "price": 200
+      "price": 200,
+      "is_whiteList": false,
+      "is_cartList":false
     },
     {
-      "id": 3
+      "name": "T-shirt",
+      "price": 500,
+      "id": 3,
+      "is_cartList":false
     },
     {
-      "name": "hello",
-      "price": 7657,
+      "name": "Water-bottel",
+      "price": 100,
       "id": 4
     },
     {
-      "name": "fghf",
-      "price": 6546,
+      "name": "book",
+      "price": 45,
       "id": 5
     },
     {
-      "name": "gfdg",
-      "price": 67576,
+      "name": "monitor",
+      "price": 1000,
       "id": 6
-    },
-    {
-      "name": "gfdg",
-      "price": 67576,
-      "id": 7
-    },
-    {
-      "name": "fghf",
-      "price": 546,
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "name": "chanmol",
-      "price": 435,
-      "id": 11
-    },
-    {
-      "name": "hkhk",
-      "price": 678,
-      "id": 12
     }
   ]
 }
