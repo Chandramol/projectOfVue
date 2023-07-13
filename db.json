@@ -79,6 +79,22 @@
       "city": "",
       "password": "",
       "id": 11
+    },
+    {
+      "name": "niral",
+      "email": "niral@test",
+      "contact": "897897",
+      "city": "surat",
+      "password": "abc",
+      "id": 12
+    },
+    {
+      "name": "abc",
+      "email": "anc@test",
+      "contact": "7897",
+      "city": "hkjh",
+      "password": "kbkj",
+      "id": 13
     }
   ],
   "product": [
@@ -87,20 +103,20 @@
       "name": "shoes",
       "price": 100,
       "is_whiteList": false,
-      "is_cartList":false
+      "is_cartList": false
     },
     {
       "id": 2,
       "name": "clothes",
       "price": 200,
       "is_whiteList": false,
-      "is_cartList":false
+      "is_cartList": false
     },
     {
       "name": "T-shirt",
       "price": 500,
       "id": 3,
-      "is_cartList":false
+      "is_cartList": false
     },
     {
       "name": "Water-bottel",

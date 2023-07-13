@@ -1,13 +1,17 @@
 <template>
-  <h1>Hi User! Welcome to Home Product Page</h1><br>
+  <h1>Hi User! Welcome to Home Product Page</h1>
+  <br />
   <!-- navigation bar -->
   <nav>
     <ul>
       <li><a href="#">Product</a></li>
       <router-link to="/cart">
-        <li><a href="">Cart
-          <span class="text-warning">{{ cartList }}</span>
-        </a></li>
+        <li>
+          <a href=""
+            >Cart
+            <span class="text-warning">{{ cartList }}</span>
+          </a>
+        </li>
       </router-link>
       <li>
         <a href="#"
@@ -68,18 +72,25 @@
           >&nbsp;
         </td>
         <td>
-          <button class="btn btn-danger" @click="delProduct(val.id)">Del</button>
+          <button class="btn btn-danger" @click="delProduct(val.id)">
+            Del
+          </button>
         </td>
       </tr>
     </table>
   </div>
-  <!-- added to cart  form-->
+  <!-- added to cart  form and validation-->
   <div v-if="show" class="cartForm col-5 m-auto p-5 position-relative">
     <h3 class="mb-5 text-warning text-decoration-underline">
       Enter Detail to throw in Cart-list
     </h3>
     <div v-for="item in getCartForm" :key="item">
-      <input type="radio" id="add1" @click="addressForm()" class="form-check-input" />&nbsp;
+      <input
+        type="radio"
+        id="add1"
+        @click="addressForm()"
+        class="form-check-input"
+      />&nbsp;
       <label for="add1">{{ item.address }}</label>
     </div>
     <input
@@ -87,25 +98,35 @@
       placeholder="First Name"
       v-model="cartForm.fname"
       class="form-control"
-    /><br />
+    />
+    <span class="text-danger" v-for="error of v$.cartForm.fname.$errors" :key="error.$uid">
+      {{ error.$message }}
+    </span><br />
     <input
       type="text"
       placeholder="Last Name"
       v-model="cartForm.lname"
       class="form-control"
-    /><br />
+    /><span class="text-danger" v-for="error of v$.cartForm.lname.$errors" :key="error.$uid">
+      {{ error.$message }}
+    </span><br />
     <input
       type="text"
       placeholder="Enter Your Conatct"
       v-model="cartForm.contact"
       class="form-control"
-    /><br />
+    /><span class="text-danger" v-for="error of v$.cartForm.contact.$errors" :key="error.$uid">
+      {{ error.$message }}
+    </span><br />
     <textarea
       placeholder="Address"
       class="form-control"
       v-model="cartForm.address"
     ></textarea
-    ><br />
+    ><span class="text-danger" v-for="error of v$.cartForm.address.$errors" :key="error.$uid">
+      {{ error.$message }}
+    </span><br />
+    
     <button @click="closeForm()" class="closeBtn"></button>
     <button @click="submitCart()" class="btn btn-secondary">Submit</button>
   </div>
@@ -113,6 +134,8 @@
 
 <script>
 import { mapGetters, mapState, mapActions } from "vuex";
+import { useVuelidate } from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
 
 export default {
   name: "Home",
@@ -130,7 +153,22 @@ export default {
         address: "",
       },
       cartStored: "",
-      updateCart:""
+      updateCart: "",
+    };
+  },
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
+  validations() {
+    return {
+      cartForm: {
+        fname: { required },
+        lname: { required },
+        contact:{required},
+        address:{required}
+      },
     };
   },
   methods: {
@@ -148,10 +186,10 @@ export default {
         name: this.product.name,
         price: this.product.price,
       });
-      this.product={
-        name:'',
-        price:''
-      }
+      this.product = {
+        name: "",
+        price: "",
+      };
     },
     delProduct(id) {
       this.delPro(id);
@@ -166,8 +204,8 @@ export default {
       this.show = true;
       this.getState.map((value) => {
         if (id == value.id) {
-          value.is_cartList=!value.is_cartList;
-          this.updateCart=value.is_cartList
+          value.is_cartList = true;
+          this.updateCart = value.is_cartList;
           this.cartStored = value;
         }
       });
@@ -176,12 +214,14 @@ export default {
       this.show = false;
     },
     submitCart() {
-      console.log("submit data");
-      this.addCartData(this.cartStored);
-      alert("Your product added in cart successfully...");
-      this.addCartForm(this.cartForm);
-      this.show = false;
-      this.updatecartList(this.updateCart);
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        this.addCartForm(this.cartForm);
+        this.show = false;
+        alert("Your product added in cart successfully...");
+        this.addCartData(this.cartStored);
+        this.updatecartList(this.updateCart);
+      }
     },
     wishcart(id) {
       console.log("wishcart", this.getState);
@@ -194,14 +234,15 @@ export default {
       console.log(this.wishList);
     },
     addressForm() {
-      this.addCartData(this.cartStored);
       alert("Your product added in cart successfully...");
+      this.addCartData(this.cartStored);
+      this.updatecartList(this.updateCart);
       this.show = false;
     },
   },
   computed: {
     ...mapGetters(["getState", "getCartForm"]),
-    ...mapState(["wishList","cartList"]),
+    ...mapState(["wishList", "cartList"]),
   },
   mounted() {
     this.getPro();
